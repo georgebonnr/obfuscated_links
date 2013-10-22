@@ -1,0 +1,100 @@
+body {
+  font-family: arial, sans-serif;
+}
+
+a {
+  color: #333;
+  font-size: 14px;
+  text-decoration:none;
+}
+
+h2 {
+  border-bottom: 1px solid #333;
+}
+
+.link {
+  clear: both;
+  margin-bottom: 5px;
+  padding: 5px;
+  min-height: 50px;
+}
+
+.link:hover {
+  background-color: #eee;
+}
+
+.link img {
+  float: left;
+  margin: 0 5px;
+}
+
+.link .visits {
+  float: right;
+}
+
+.link .visits .count {
+  font-size: 46px;
+  font-weight: 600;
+}
+
+.link .title {
+  font-weight: 600;
+}
+
+.link .original {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.link .info {
+  margin-left: 55px;
+}
+
+.create {
+  margin-top: 12px;
+  margin-bottom: 10px;
+  float: right;
+}
+
+.navigation {
+  margin: 10px;
+}
+
+form {
+  margin: 10px;
+}
+
+form input[type=text] {
+  width: 360px;
+  display: block;
+  font-size: 13px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.error {
+  background-color: #fee;
+  color: #a33;
+  padding: 10px;
+  margin: 10px;
+}
+
+.spinner {
+  height: 50px;
+}
+
+.spinner form {
+  float: left;
+}
+
+.spinner img {
+  height: 46px;
+  margin-bottom: 5px;
+  padding: 10px;
+  display: none;
+}
+
+#shortcode {
+  margin-top: 20px;
+  clear: both;
+}
