@@ -1,4 +1,5 @@
 require 'sinatra'
+require "sinatra/reloader" if development?
 require 'active_record'
 require 'digest/sha1'
 require 'pry'

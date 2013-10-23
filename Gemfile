@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
+gem 'sinatra-contrib'
 gem 'sqlite3'
 gem 'activerecord', '~>3.2'
 gem 'sinatra-activerecord'
@@ -10,7 +11,6 @@ group :development, :test do
   gem 'pry'
   gem 'rspec'
   gem 'thin'
-  gem 'shotgun'
   gem 'tux'
 end
 
