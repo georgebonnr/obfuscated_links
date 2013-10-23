@@ -26,6 +26,11 @@ describe "URL Shortener" do
       last_response.body.should_not be_empty
     end
 
+    it "fetches the page title" do
+      post '/new', :url => 'http://www.nyt.com'
+      Link.last.title.should_not be_empty
+    end
+
     context "for the same link" do
       before do
         @url = 'http://www.google.com'
