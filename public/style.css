@@ -1,15 +1,56 @@
 body {
+  margin: 0;
+  margin-top: 10px;
   font-family: arial, sans-serif;
 }
 
 a {
   color: #333;
   font-size: 14px;
-  text-decoration:none;
+  text-decoration: none;
 }
 
-h2 {
-  border-bottom: 1px solid #333;
+h1 {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.navigation {
+  width: 100%;
+  height: 40px;
+  background-color: #eee;
+}
+
+.navigation ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navigation li {
+  float: left;
+}
+
+.navigation li a {
+  width: 100px;
+  height: 20px;
+  line-height: 20px;
+  padding: 10px;
+  display: block;
+  text-align: center;
+}
+
+.navigation li a:hover {
+  background-color: #ddd;
+}
+
+.navigation li a.selected {
+  background-color: #ccc;
+}
+
+#container {
+  clear: both;
+  margin-top: 10px;
 }
 
 .link {
@@ -20,7 +61,7 @@ h2 {
 }
 
 .link:hover {
-  background-color: #eee;
+  background-color: #efe;
 }
 
 .link img {
@@ -30,6 +71,8 @@ h2 {
 
 .link .visits {
   float: right;
+  margin-right: 10px;
+  margin-left: 20px;
 }
 
 .link .visits .count {
@@ -50,16 +93,6 @@ h2 {
   margin-left: 55px;
 }
 
-.create {
-  margin-top: 12px;
-  margin-bottom: 10px;
-  float: right;
-}
-
-.navigation {
-  margin: 10px;
-}
-
 form {
   margin: 10px;
 }
@@ -76,25 +109,25 @@ form input[type=text] {
   background-color: #fee;
   color: #a33;
   padding: 10px;
-  margin: 10px;
+  margin: 0 10px;
 }
 
-.spinner {
+.creator {
   height: 50px;
 }
 
-.spinner form {
+.creator form {
   float: left;
+  height: 80px;
 }
 
-.spinner img {
+.creator img.spinner {
   height: 46px;
   margin-bottom: 5px;
   padding: 10px;
   display: none;
 }
 
-#shortcode {
-  margin-top: 20px;
+.creator .message {
   clear: both;
 }

@@ -40,6 +40,8 @@ class Link < ActiveRecord::Base
 
     has_many :clicks
 
+    validates :url, presence: true
+
     before_save do |record|
         record.code = Digest::SHA1.hexdigest(url)[0,5]
     end
@@ -54,17 +56,19 @@ end
 ###########################################################
 
 get '/' do
-    @links = Link.order("created_at DESC")
-    @base_url = request.base_url
     erb :index
 end
 
-get '/new' do
-    erb :form
+get '/links' do
+    links = Link.order("created_at DESC")
+    links.map { |link|
+        link.as_json.merge(base_url: request.base_url)
+    }.to_json
 end
 
-post '/new' do
-    uri = URI(params[:url])
+post '/links' do
+    data = JSON.parse request.body.read
+    uri = URI(data['url'])
     raise Sinatra::NotFound unless uri.absolute?
     link = Link.find_by_url(uri.to_s) ||
            Link.create( url: uri.to_s, title: get_url_title(uri) )
