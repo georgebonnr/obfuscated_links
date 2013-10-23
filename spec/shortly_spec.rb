@@ -21,27 +21,27 @@ describe "URL Shortener" do
 
   context "successful requests" do
     it "can shorten a link" do
-      post '/new', :url => 'http://www.nyt.com'
+      post '/links', {:url => 'http://www.nytimes.com'}.to_json
       last_response.status == 200
       last_response.body.should_not be_empty
     end
 
     it "fetches the page title" do
-      post '/new', :url => 'http://www.nyt.com'
+      post '/links', {:url => 'http://www.nytimes.com'}.to_json
       Link.last.title.should_not be_empty
     end
 
     context "for the same link" do
       before do
         @url = 'http://www.google.com'
-        post '/new', :url => @url
+        post '/links', {:url => @url}.to_json
         last_response.body.should_not be_empty
         @short_link = last_response.body
       end
 
       it "returns the same short-url" do
         5.times do
-          post '/new', :url => @url
+          post '/links', {:url => @url}.to_json
           last_response.body.should == @short_link
         end
       end
@@ -49,7 +49,7 @@ describe "URL Shortener" do
       it "does not create extra database entries" do
         expect {
           5.times do
-            post '/new', :url => @url
+            post '/links', {:url => @url}.to_json
           end
         }.to_not change{ Link.count }
       end
@@ -57,7 +57,7 @@ describe "URL Shortener" do
 
     context "using short-urls" do
       before do
-        post '/new', :url => 'http://www.hackreactor.com'
+        post '/links', {:url => 'http://www.hackreactor.com'}.to_json
         @short_code = JSON.parse(last_response.body)['code']
       end
 
@@ -94,7 +94,7 @@ describe "URL Shortener" do
     end
 
     it "does not accepts non-absolute urls" do
-      post '/new', :url => 'www.hackreactor.com'
+      post '/links', {:url => 'www.hackreactor.com'}.to_json
       last_response.status.should == 404
     end
   end
