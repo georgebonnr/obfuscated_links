@@ -82,6 +82,14 @@ get '/:url' do
     redirect link.url
 end
 
+get '/links/:id' do
+    clicks = Click.where("link_id = #{params[:id]}")
+    puts clicks
+    clicks.map { |click|
+        click.as_json.merge(base_url: request.base_url)
+    }.to_json
+end
+
 ###########################################################
 # Utility
 ###########################################################

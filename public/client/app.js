@@ -8,7 +8,8 @@ window.Shortly = Backbone.View.extend({
         <li><a href="#" class="create">Shorten</a></li> \
       </ul> \
       </div> \
-      <div id="container"></div>'
+      <div id="container"></div> \
+      <div id="stats"></div>'
   ),
 
   events: {

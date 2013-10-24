@@ -30,6 +30,7 @@ Shortly.LinksView = Backbone.View.extend({
   },
 
   addAll: function(subCollection){
+    if (!subCollection.models) {return;}
     this.$el.append(this.template());
     if (subCollection) {
       subCollection.forEach(this.addOne, this);

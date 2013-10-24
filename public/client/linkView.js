@@ -12,9 +12,18 @@ Shortly.LinkView = Backbone.View.extend({
       </div>'
   ),
 
+  events: {
+    "click .title": "renderStatsView",
+  },
+
   render: function() {
     this.$el.html( this.template(this.model.attributes) );
     return this;
-  }
+  },
+
+  renderStatsView: function(e){
+    e && e.preventDefault();
+    var statsView = new Shortly.StatsView({model: this.model});
+  },
 
 });
