@@ -40,6 +40,15 @@ h1 {
   text-align: center;
 }
 
+.navigation b {
+  width: 100px;
+  height: 20px;
+  line-height: 20px;
+  padding: 10px;
+  display: block;
+  text-align: center;
+}
+
 .navigation li a:hover {
   background-color: #ddd;
 }
@@ -130,4 +139,48 @@ form input[type=text] {
 
 .creator .message {
   clear: both;
+}
+
+.sort_by {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.sort_by ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sort_by li {
+  background-color: #eee;
+  float: left;
+}
+
+.sort_by li a {
+  width: 100px;
+  height: 20px;
+  line-height: 20px;
+  padding: 10px;
+  display: block;
+  text-align: center;
+}
+
+.sort_by li span {
+  /*width: 100px;*/
+  height: 20px;
+  line-height: 20px;
+  padding: 10px;
+  display: block;
+  text-align: center;
+}
+
+.sort_by b {
+  width: 100px;
+  height: 20px;
+  line-height: 20px;
+  padding: 10px;
+  display: block;
+  text-align: center;
 }

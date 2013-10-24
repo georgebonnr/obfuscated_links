@@ -48,7 +48,7 @@ class Link < ActiveRecord::Base
 end
 
 class Click < ActiveRecord::Base
-    belongs_to :link, counter_cache: :visits
+    belongs_to :link, counter_cache: :visits, touch: true
 end
 
 ###########################################################
