@@ -167,6 +167,10 @@ form input[type=text] {
   text-align: center;
 }
 
+.last-visited, .total-visits {
+  cursor: pointer;
+}
+
 .sort_by li span {
   /*width: 100px;*/
   height: 20px;

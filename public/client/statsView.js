@@ -1,25 +1,12 @@
 Shortly.StatsView = Backbone.View.extend({
 
-  // className: 'stats',
-
-  // template: _.template(' \
-  //     <table> \
-  //     <tr>one</tr> \
-  //       <td><%= created_at %></td> \
-  //       <td>foo</td> \
-  //     <tr>two</tr> \
-  //       <td>hello</td> \
-  //       <td>goodbye</td> \
-  //     </table>'
-  // ),
-  list: "<% _.each(data, function(item) { %> <td><%= item.time %></td> <% }); %>",
-
-  // template: _.template(list, data),
+  list: "<% _.each(data, function(item) { %> <td><%= item[0] %></td> <% }); %>",
 
   initialize: function(){
     var that = this;
     this.model.fetch({
       data: this.model.get("id"),
+      silent: true,
       success: function(response) {
         var data = response.attributes;
         that.render(data);
@@ -50,7 +37,7 @@ Shortly.StatsView = Backbone.View.extend({
 
     console.log(finalData);
 
-    this.$el.append(_.template(this.list, {data: obj}));
+    this.$el.append(_.template(this.list, {data: finalData}));
     $('#stats').html( this.el );
   }
 });

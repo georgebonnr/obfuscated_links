@@ -59,6 +59,10 @@ get '/' do
     erb :index
 end
 
+get '/create' do
+    erb :index
+end
+
 get '/links' do
     links = Link.order("created_at DESC")
     links.map { |link|

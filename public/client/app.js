@@ -20,26 +20,26 @@ window.Shortly = Backbone.View.extend({
   initialize: function(){
     console.log( "Shortly is running" );
     $('body').append(this.render().el);
-    this.renderIndexView(); // default view
+    this.router = new Shortly.Router();
+    Backbone.history.start({pushState: true});
   },
 
   render: function(){
+    console.log(this.$el)
     this.$el.html( this.template() );
+    this.updateNav('index');
     return this;
   },
 
   renderIndexView: function(e){
     e && e.preventDefault();
-    var links = new Shortly.Links();
-    var linksView = new Shortly.LinksView( {collection: links} );
-    this.$el.find('#container').html( linksView.render().el );
+    this.router.navigate("", {trigger: true});
     this.updateNav('index');
   },
 
   renderCreateView: function(e){
     e && e.preventDefault();
-    var linkCreateView = new Shortly.LinkCreateView();
-    this.$el.find('#container').html( linkCreateView.render().el );
+    this.router.navigate("create", {trigger: true});
     this.updateNav('create');
   },
 

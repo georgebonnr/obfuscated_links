@@ -7,8 +7,8 @@ Shortly.LinksView = Backbone.View.extend({
         <ul> \
           <li><span><input class="filter" type="text" size="20"></span></li> \
           <li><b>Sort By:</b></li> \
-          <li><a href="#" class="last-visited">Last Visited</a></li> \
-          <li><a href="#" class="total-visits">Total Visits</a></li> \
+          <li><span class="last-visited">Last Visited</span></li> \
+          <li><span class="total-visits">Total Visits</span></li> \
         </ul> \
       </div>'
   ),
@@ -19,8 +19,8 @@ Shortly.LinksView = Backbone.View.extend({
   },
 
   events: {
-    "click li a.total-visits":  "sortByVisits",
-    "click li a.last-visited":  "sortByLastVisited",
+    "click li span.total-visits":  "sortByVisits",
+    "click li span.last-visited":  "sortByLastVisited",
     "change input.filter": "filterCollection"
   },
 
@@ -56,6 +56,7 @@ Shortly.LinksView = Backbone.View.extend({
   },
 
   sortByVisits: function(){
+    debugger
     this.collection.sort_by_visits();
     this.render();
     this.addAll();
