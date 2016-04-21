@@ -1,3 +1,3 @@
-#shortly
+#obfuscated_links
 
-Another version of link shortening
+deprecated!
